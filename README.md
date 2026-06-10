@@ -1,5 +1,5 @@
 
-# Termux iOS Sideloading: PojavLauncher & Amethyst
+# PojavLauncher & Amethyst Sideloading iOS With Termux: 
 
 This repository provides an automated environment and guide to sideload iOS applications (specifically PojavLauncher and Amethyst Launcher) directly from an Android device to an iOS device using Termux and an OTG cable. It combines standard pairing protocols with the sideloading scripts.
 
