@@ -15,7 +15,7 @@ This repository provides an automated environment and guide to sideload iOS appl
 * An iOS device (iPhone/iPad)
 * An Android device with OTG support
 * A USB-C to Lightning or USB-C to USB-C cable
-* Termux and Termux:API installed from F-Droid
+* [Termux](https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3+github-debug_arm64-v8a.apk) and [Termux-api](https://github.com/termux/termux-api/releases/download/v0.53.0/termux-api-app_v0.53.0+github.debug.apk) 
 
 ## Environment Setup
 
@@ -62,28 +62,25 @@ idevicepair pair
 
 ```
 
-## Sideloading Launchers
 
-Once the devices are successfully paired, you can download and sideload your desired IPA files.
+## Installing SideStore
+Connect your phone with the iDevice using any cable you got, open termux and run usbmuxd. If it the iDevice shows a popup asking for permission click trust or whatever it says to give it perms. Now it should say something like usbmuxd running. Click Ctrl+c to stop.
 
-For Amethyst Launcher:
-
-```bash
-wget [AMETHYST_IPA_DOWNLOAD_LINK] -O Amethyst.ipa
-sideloader install Amethyst.ipa -i
-
+Now you can sideload! grab the sidestore ipa by running:
 ```
-
-For PojavLauncher:
-
-```bash
-wget [POJAVLAUNCHER_IPA_DOWNLOAD_LINK] -O PojavLauncher.ipa
-sideloader install PojavLauncher.ipa -i
-
+wget https://github.com/SideStore/SideStore/releases/download/0.6.2/SideStore.ipa && sideloader install SideStore.ipa -i
 ```
+It will ask you for your Apple ID and password, enter them and the ipa will start installing on your iDevive.
 
-The tool will prompt you for your Apple ID and password to sign the IPA file. Enter your credentials, and the application will be installed on your iOS device.
+The tool will prompt you for your Apple ID and password to sign the application. Enter your credentials, and SideStore will be installed on your iOS device.
 
+Transfer the pairing file (<UDID>.plist) you generated earlier from your Android device to your iOS device.
+
+Open the SideStore app.
+
+It will ask for a pairing file. Select the .plist file you just transferred.
+
+Sign in with your Apple ID and an App-Specific Password to finalize the setup. You can now use SideStore directly on your device.
 ## Troubleshooting
 
 * **Connection Issues:** If `usbmuxd` fails or the trust prompt does not appear, your Android device might be restricting low-level USB access. Ensure you are running Termux with appropriate permissions or root access if necessary.
